@@ -1,0 +1,46 @@
+body, html {
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    margin: 0;
+}
+
+.column {
+    border-right: 3px solid #000000;
+    height: 100%;
+    float: left;
+}
+
+.app-column {
+    width: 6%;
+}
+
+.inout-column {
+    width: 64%;
+}
+
+.model-column {
+    width: 30%;
+}
+
+.app-icon-container {
+    height: auto;
+    overflow: hidden;
+    width: 100%;
+}
+
+.app-icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: block;
+    height: 80%;
+    margin: 20% 10% 0 10%;
+    width: 80%;          
+}
+
+.app-icon-button img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
