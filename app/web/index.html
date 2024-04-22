@@ -13,25 +13,53 @@
         <div class="column app-column">
             <div class="app-icon-container">
                 <button class="app-icon-button" onclick="alert('Hi')">
-                    <img src="icons/sad_face.png" alt="Image not found">
+                    <img src="icons/sad_face.png" alt="Sentiment Analysis">
                 </button>
             </div>
             <div class="app-icon-container">
                 <button class="app-icon-button" onclick="alert('Hi')">
-                    <img src="icons/question.png" alt="Image not found">
+                    <img src="icons/question.png" alt="Winograd Challenge">
                 </button>
             </div>
-            <div class="app-icon-container">
-                <button class="app-icon-button" onclick="alert('Hi')">
-                    <img src="icons/github-mark.png" alt="Image not found">
-                </button>
+            <div class="social-icon-container">
+                <a class="social-icon-button" href="https://github.com/antoniojha02ugr/mals" target="_blank">
+                    <img src="icons/github-mark.png" alt="GitHub">
+                </a>
             </div>
         </div>
+
         <div class="column inout-column">
             
         </div>
+
         <div class="column model-column">
-            
+            <div class="modelselector-container">
+                <div class="model-card">
+                    <img src="icons/gpt2.png">
+                    <div class="model-text">Parameters: 1</div>
+                    <div class="model-text">Train data: 1</div>
+                </div>
+                
+                <div class="model-card">
+                    <img src="icons/llama2.png">
+                    <div class="model-text">Parameters: 2</div>
+                    <div class="model-text">Train data: 2</div>
+                </div>
+
+                <div class="model-card">
+                    <img src="icons/gpt4.png">
+                    <div class="model-text">Parameters: 3</div>
+                    <div class="model-text">Train data: 3</div>
+                </div>
+                
+                <div class="modelbuttons-container">
+                    <button class="model-button" onclick="prevModel()">&#10094;</button>
+                    <button class="model-button">Select</button>
+                    <button class="model-button" onclick="nextModel()">&#10095;</button>
+                </div>
+            </div>
         </div>
+
+        <script src="scripts/modelselector.js"></script>
 </body>
 </html>
