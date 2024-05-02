@@ -58,6 +58,23 @@
                     <button class="model-button" onclick="nextModel()">&#10095;</button>
                 </div>
             </div>
+
+            <div class="parameters-container">
+                <div class="parameter">
+                    <div class="parameter-left">Current model:</div>
+                    <div class="parameter-right">GPT-2</div> 
+                </div>
+
+                <div class="parameter">
+                    <div class="parameter-left">Context window:</div>
+                    <div class="parameter-right">
+                        <form>
+                            <input type="range" id="cw-r" min="0" max="100" step="1" class="parameter-slider">
+                            <input type="text" id="cw-v" class="parameter-outputbox" readonly>
+                        </form>
+                    </div> 
+                </div>
+            </div>
         </div>
 
         <script src="scripts/modelselector.js"></script>
