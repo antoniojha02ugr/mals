@@ -6,55 +6,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" type="image/png" href="icons/favicon.png">
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="icon" type="image/png" href="/static/icons/favicon.png">
+    <link rel="stylesheet" href="/static/styles/styles.css">
+    <link rel="stylesheet" href="/static/styles/ginput.css">
 </head>
 <body>
         <div class="column app-column">
             <div class="app-icon-container">
-                <button class="app-icon-button" onclick="alert('Hi')">
-                    <img src="icons/sad_face.png" alt="Sentiment Analysis">
+                <button class="app-icon-button" onclick='loadAppInterface("/static/html/ginput.html")'>
+                    <img src="/static/icons/question.png" alt="General Input">
                 </button>
             </div>
             <div class="app-icon-container">
-                <button class="app-icon-button" onclick="alert('Hi')">
-                    <img src="icons/question.png" alt="Winograd Challenge">
+                <button class="app-icon-button" onclick='loadAppInterface("/static/html/sentiment.html")'>
+                    <img src="/static/icons/sad_face.png" alt="Sentiment Analysis">
                 </button>
             </div>
             <div class="social-icon-container">
                 <a class="social-icon-button" href="https://github.com/antoniojha02ugr/mals" target="_blank">
-                    <img src="icons/github-mark.png" alt="GitHub">
+                    <img src="/static/icons/github-mark.png" alt="GitHub">
                 </a>
             </div>
         </div>
 
-        <div class="column inout-column">
-            
-        </div>
+        <div class="column inout-column" id="app-interface"></div>
 
         <div class="column model-column">
             <div class="modelselector-container">
-                <div class="model-card">
-                    <img src="icons/gpt2.png">
+                <div class="model-card" id="gpt2" data-model-name="GPT-2">
+                    <img src="/static/icons/gpt2.png">
                     <div class="model-text">Parameters: 1</div>
                     <div class="model-text">Train data: 1</div>
                 </div>
                 
-                <div class="model-card">
-                    <img src="icons/llama2.png">
+                <div class="model-card" id="llama2" data-model-name="Llama2">
+                    <img src="/static/icons/llama2.png">
                     <div class="model-text">Parameters: 2</div>
                     <div class="model-text">Train data: 2</div>
                 </div>
 
-                <div class="model-card">
-                    <img src="icons/gpt4.png">
+                <div class="model-card" id="gpt4" data-model-name="GPT-4">
+                    <img src="/static/icons/gpt4.png">
                     <div class="model-text">Parameters: 3</div>
                     <div class="model-text">Train data: 3</div>
                 </div>
                 
                 <div class="modelbuttons-container">
                     <button class="model-button" onclick="prevModel()">&#10094;</button>
-                    <button class="model-button">Select</button>
+                    <button class="model-button" onclick="selectModel()">Select</button>
                     <button class="model-button" onclick="nextModel()">&#10095;</button>
                 </div>
             </div>
@@ -62,7 +61,7 @@
             <div class="parameters-container">
                 <div class="parameter">
                     <div class="parameter-left">Current model:</div>
-                    <div class="parameter-right">GPT-2</div> 
+                    <div class="parameter-right" id="model-display">None</div> 
                 </div>
 
                 <div class="parameter">
@@ -76,7 +75,9 @@
                 </div>
             </div>
         </div>
-
-        <script src="scripts/modelselector.js"></script>
+        
+        <script src="/static/scripts/appselector.js"></script>
+        <script src="/static/scripts/modelselector.js"></script>
+        <script src="/static/scripts/ginput.js"></script>
 </body>
 </html>

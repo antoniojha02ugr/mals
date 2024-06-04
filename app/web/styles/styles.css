@@ -162,11 +162,29 @@ body, html {
 .parameter-outputbox {
     appearance: none;
     border: 2px solid #000000;
-    border-radius: 5%;
+    border-radius: 5px;
     box-shadow: none;
     color: #000000;
     font-size: large;
     outline: none;
     -webkit-appearance: none;
     width: 30%;
+}
+
+.spinner-container {
+    background-color: #ffffffa0; 
+    height: 100%; 
+    left: 0; 
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    z-index: 9999;
+}
+
+.spinner-text {
+    font-size: xx-large;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }

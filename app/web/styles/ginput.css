@@ -1,0 +1,55 @@
+.ginput-input {
+    border: 3px solid #000000;
+    border-radius: 10px;
+    box-sizing: border-box;
+    height: 60vh;
+    margin: 4vh auto 2vh auto;
+    width: 85%;
+}
+
+.ginput-buttons-container {
+    box-sizing: border-box;
+    height: 6vh;
+    margin: 2vh auto;
+    text-align: center;
+    width: 85%;
+}
+
+.ginput-button {
+    background-color: #ffffff;
+    border:none;
+    color: #000000;
+    cursor: pointer;
+    font-size: x-large;
+    font-weight: bold;
+    height: 100%; 
+    margin: 0 15%;
+    text-align: center;
+    width: auto;
+}
+
+.ginput-button:hover {
+    color: #9e9e9e;
+}
+
+.ginput-output {
+    border: 3px solid #000000;
+    border-radius: 10px;
+    box-sizing: border-box;
+    height: 22vh;
+    margin: 2vh auto 4vh auto;
+    width: 85%;
+}
+
+.ginput-tarea {
+    border: none;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: large;
+    height: 100%;
+    outline: none;
+    padding: 2%;
+    resize: none;
+    width: 100%;
+}
+  
