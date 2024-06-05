@@ -27,3 +27,9 @@ async def select_model(message: Message):
     time.sleep(2)
 
     return {}
+
+@app.post('/api/run-ginput')
+async def select_model(message: Message):
+    time.sleep(2)
+
+    return {'message': message.message}

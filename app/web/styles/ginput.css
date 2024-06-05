@@ -52,4 +52,8 @@
     resize: none;
     width: 100%;
 }
-  
+ 
+.ginput-tarea.error {
+    color: red;
+    text-align: center;
+}
