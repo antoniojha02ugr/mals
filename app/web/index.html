@@ -9,6 +9,8 @@
     <link rel="icon" type="image/png" href="/static/icons/favicon.png">
     <link rel="stylesheet" href="/static/styles/styles.css">
     <link rel="stylesheet" href="/static/styles/ginput.css">
+    <link rel="stylesheet" href="/static/styles/sentiment.css">
+    <link rel="stylesheet" href="/static/styles/dataset.css">
 </head>
 <body>
         <div class="column app-column">
@@ -39,16 +41,16 @@
                     <div class="model-text">Train data: 1</div>
                 </div>
                 
-                <div class="model-card" id="llama2" data-model-name="Llama2">
+                <div class="model-card" id="llama2" data-model-name="Llama2-Q3-medium">
                     <img src="/static/icons/llama2.png">
                     <div class="model-text">Parameters: 2</div>
                     <div class="model-text">Train data: 2</div>
                 </div>
 
-                <div class="model-card" id="gpt4" data-model-name="GPT-4">
-                    <img src="/static/icons/gpt4.png">
-                    <div class="model-text">Parameters: 3</div>
-                    <div class="model-text">Train data: 3</div>
+                <div class="model-card" id="gemini" data-model-name="Gemini-1.0-pro">
+                    <img src="/static/icons/gemini.png">
+                    <div class="model-text">Parameters: 2</div>
+                    <div class="model-text">Train data: 2</div>
                 </div>
                 
                 <div class="modelbuttons-container">
@@ -81,5 +83,6 @@
         <script src="/static/scripts/appselector.js"></script>
         <script src="/static/scripts/modelselector.js"></script>
         <script src="/static/scripts/ginput.js"></script>
+        <script src="/static/scripts/sentiment.js"></script>
 </body>
 </html>

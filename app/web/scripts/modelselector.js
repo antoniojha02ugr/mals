@@ -48,20 +48,20 @@ async function selectModel() {
     spinner_container.classList.add('spinner-container');
     spinner_text.classList.add('spinner-text');
 
-    spinner_text.textContent = 'Loading model, this might take a while';
+    spinner_text.textContent = 'Loading model, this might take a while...';
 
     // Include the text in the father container and it in the main document
     spinner_container.appendChild(spinner_text);
     document.body.appendChild(spinner_container);
 
     try {
-        // Asyncronous send of the model name to the API
+        // Asyncronous send of the model identificator to the API
         const response = await fetch('/api/select-model', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ message: models[modelIndex].id })
+          body: JSON.stringify({ id: models[modelIndex].id })
         });
     
         // Check for successful response

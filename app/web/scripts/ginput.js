@@ -42,7 +42,7 @@ async function runGinput() {
     spinner_container.classList.add('spinner-container');
     spinner_text.classList.add('spinner-text');
 
-    spinner_text.textContent = 'Generating output, this might take a while';
+    spinner_text.textContent = 'Generating output, this might take a while...';
 
     // Include the text in the father container and it in the main document
     spinner_container.appendChild(spinner_text);
@@ -59,7 +59,7 @@ async function runGinput() {
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ message: inputMessage })
+          body: JSON.stringify({ inpt: inputMessage })
         });
     
         // Check if the API call was successful (status code 200)
@@ -71,7 +71,7 @@ async function runGinput() {
         const responseData = await response.json();
 
         // Update the output textarea with the response message
-        outputTextArea.value = responseData.message;
+        outputTextArea.value = responseData.output;
 
     } catch (error) {
         console.error('Error sending message:', error);
