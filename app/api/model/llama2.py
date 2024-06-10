@@ -14,10 +14,12 @@ class Llama2:
         Initializes the Llama2 class with a very quantized version of the model.
         """
 
-        # Loads the model from the specified repository, the model is stored at virtual enviroment cache for future executions
-        self._model_ = Llama.from_pretrained(repo_id="TheBloke/Llama-2-7B-Chat-GGUF", filename="llama-2-7b-chat.Q3_K_M.gguf", verbose=False)
+        self.id = 'llama2'
 
-    def run(self, inpt: str):
+        # Loads the model from the specified repository, the model is stored at virtual enviroment cache for future executions
+        self._model = Llama.from_pretrained(repo_id="TheBloke/Llama-2-7B-Chat-GGUF", filename="llama-2-7b-chat.Q3_K_M.gguf", verbose=False, n_gpu_layers=-1)
+
+    def run(self, inpt: str, max_len: int):
         """
         Runs the Llama2 model on the provided input text and generates text.
 
@@ -28,7 +30,7 @@ class Llama2:
             str: The generated text based on the input.
         """
 
-        output = self._model_(inpt)
+        output = self._model(inpt)
 
         # llama_cpp generates completions in an OpenAI compatible format (using a dictionary)
 

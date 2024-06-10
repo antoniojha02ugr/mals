@@ -188,3 +188,20 @@ body, html {
     top: 50%;
     transform: translate(-50%, -50%);
 }
+
+.text-area {
+    border: none;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: large;
+    height: 100%;
+    outline: none;
+    padding: 2%;
+    resize: none;
+    width: 100%;
+}
+ 
+.text-area.error {
+    color: red;
+    text-align: center;
+}

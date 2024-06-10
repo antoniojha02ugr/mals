@@ -15,6 +15,8 @@ class Gemini:
         Initializes the Gemini class with the correspondent model.
         """
 
+        self.id = 'gemini'
+
         # Read the API key from a file outside the project directory (path begins from main.py location at execution time) and remove whitespaces and new line characters
         with open('../../../keys/gemini.txt', 'r') as file:
             key = file.read()
@@ -25,7 +27,7 @@ class Gemini:
         genai.configure(api_key=key)
 
         # Create the instance of the gemini-1.0-pro model
-        self._model_ = genai.GenerativeModel('gemini-1.0-pro')
+        self._model = genai.GenerativeModel('gemini-1.0-pro')
 
     def run(self, inpt: str):
         """
@@ -38,4 +40,4 @@ class Gemini:
             str: The generated text based on the input.
         """
 
-        return self._model_.generate_content(inpt).text
+        return self._model.generate_content(inpt, generation_config=config).text

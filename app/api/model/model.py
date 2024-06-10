@@ -14,11 +14,11 @@ class Model:
         The internal model is initially set to None. You need to call the `load` method to load a specific model.
         """
 
-        self._model_ = None  # Internal model variable (initially None)
+        self._model = None  # Internal model variable (initially None)
 
     def load(self, id: str):
         """
-        Loads a specific model based on the provided identifier.
+        Loads a specific model based on the provided identifier. If the selected model is the same as the loaded one, nothing is done.
 
         Args:
             id (str): The identifier for the model to be loaded.
@@ -26,15 +26,20 @@ class Model:
         Returns:
             bool: True if the id corresponds to a correct model, False otherwise.
         """
+        
+        #If the selected model is the same as the loaded one, nothing is done
+        if not (self._model != None and id == self._model.id):
+            if id == 'gpt2':
+                self._model = GPT2()
 
-        if id == 'gpt2':
-            self._model_ = GPT2()
-        elif id == 'llama2':
-            self._model_ = Llama2()
-        elif id == 'gemini':
-            self._model_ = Gemini()
-        else:
-            return False
+            elif id == 'llama2':
+                self._model = Llama2()
+
+            elif id == 'gemini':
+                self._model = Gemini()
+
+            else:
+                return False
 
         return True
 
@@ -49,7 +54,8 @@ class Model:
             str: The generated text based on the input. Output will be an empy string if there is no model selected.
         """
         
-        if self._model_ != None:
-            return self._model_.run(inpt)
+        if self._model != None:
+            return self._model.run(inpt)
+            
         else:
             return ''

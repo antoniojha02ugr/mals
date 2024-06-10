@@ -1,15 +1,25 @@
 .sentiment-dataset-selector {
     border: 3px solid #000000;
     border-radius: 10px;
-    box-sizing: border-box;
-    height: 50vh;
+    height: 30vh;
     margin: 4vh auto 2vh auto;
     width: 85%;
 }
 
+.sentiment-input {
+    border: 3px solid #000000;
+    border-radius: 10px;
+    height: 7vh;
+    margin: 2vh auto;
+    width: 85%;
+}
+
 .sentiment-buttons-container {
+    align-items: center;
     box-sizing: border-box;
+    display: flex;
     height: 6vh;
+    justify-content: center;
     margin: 2vh auto;
     text-align: center;
     width: 85%;
@@ -23,7 +33,7 @@
     font-size: x-large;
     font-weight: bold;
     height: 100%; 
-    margin: 0 15%;
+    margin: 0 0 0 10%;
     text-align: center;
     width: auto;
 }

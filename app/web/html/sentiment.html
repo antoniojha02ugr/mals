@@ -1,29 +1,32 @@
 <div class="sentiment-fragment">
     <div class="sentiment-dataset-selector">
-        <div class="dataset" id="sd-twitter">
+        <div class="dataset" id="sd-twitter" data-ninstances="69354">
             <img src="/static/icons/twitter.png" alt="Twitter">
             <div class="dataset-info">
                 <div class="dataset-title">Twitter Sentiment Analysis</div>
+                <div class="dataset-labels">Labels: negative (or 0), positive (or 1), neutral (or 2), irrelevant (or 3)</div>
                 <a class="dataset-url" href="https://www.kaggle.com/datasets/jp797498e/twitter-entity-sentiment-analysis" target="_blank">Source</a>
             </div>
             <div class="dataset-size">
-                69491 instances
+                69354 instances
             </div>
         </div>
-        <div class="dataset" id="sd-finance">
+        <div class="dataset" id="sd-finance" data-ninstances="4808">
             <img src="/static/icons/finance.png" alt="Finance">
             <div class="dataset-info">
                 <div class="dataset-title">Financial Sentimemt Analysis</div>
+                <div class="dataset-labels">Labels: negative (or 0), positive (or 1), neutral (or 2)</div>
                 <a class="dataset-url" href="https://www.kaggle.com/datasets/sbhatti/financial-sentiment-analysis" target="_blank">Source</a>
             </div>
             <div class="dataset-size">
-                5322 instances
+                4808 instances
             </div>
         </div>
-        <div class="dataset" id="sd-imdb">
+        <div class="dataset" id="sd-imdb" data-ninstances="39723">
             <img src="/static/icons/imdb.png" alt="IMDb">
             <div class="dataset-info">
                 <div class="dataset-title">IMDb Movie Ratings Sentimemt Analysis</div>
+                <div class="dataset-labels">Labels: negative (or 0)(or no), positive (or 1)(or yes)</div>
                 <a class="dataset-url" href="https://www.kaggle.com/datasets/yasserh/imdb-movie-ratings-sentiment-analysis" target="_blank">Source</a>
             </div>
             <div class="dataset-size">
@@ -31,10 +34,21 @@
             </div>
         </div>
     </div>
+    <div class="sentiment-input">
+        <textarea class="text-area" id="sentiment-left-input-tarea" spellcheck="false" placeholder="Left string added to each input..."></textarea>
+    </div>
+    <div class="sentiment-input">
+        <textarea class="text-area" id="sentiment-right-input-tarea" spellcheck="false" placeholder="Right string added to each input..."></textarea>
+    </div>
     <div class="sentiment-buttons-container">
-        <button class="sentiment-button">Run</button>
+        <div class="instances-selector">
+            <label for="s-instances">Selected instances:&nbsp;</label>
+            <input type="number" id="s-instances" class="instances" size="5">
+        </div>
+        <button class="sentiment-button" onclick="clearSentiment()">Clear</button>
+        <button class="sentiment-button" onclick="runSentiment()">Run</button>
     </div>
     <div class="sentiment-output">
-
+        <textarea class="text-area" id="sentiment-output-tarea" spellcheck="false" placeholder="Output will be displayed here..." readonly></textarea>
     </div>
 </div>

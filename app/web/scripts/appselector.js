@@ -14,6 +14,9 @@ function loadAppInterface(file) {
         // Check if the request is completed (readyState === 4) and successful (status === 200)
         if (xhr.readyState === 4 && xhr.status === 200) {
             container.innerHTML = xhr.responseText;
+            
+            // Update dataset logic and listeners
+            setupDatasetSelection();
         }
     };
 

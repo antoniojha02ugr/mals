@@ -1,4 +1,4 @@
-from transformers import GPT2Tokenizer, GPT2LMHeadModel
+from transformers import pipeline, set_seed
 
 class GPT2:
     """
@@ -7,14 +7,12 @@ class GPT2:
 
     def __init__(self):
         """
-        Initializes the GPT2 class with the pre-trained GPT-2 tokenizer and model.
+        Initializes the GPT2 class with a pipeline for text generation using the GPT-2 model.
         """
 
-        # Tokenizer used to convert text into numerical representations used by GPT-2
-        self._tokenizer_ = GPT2Tokenizer.from_pretrained("gpt2")
+        self.id = 'gpt2'
 
-        # GPT-2 original model with a head for language modeling
-        self._model_ = GPT2LMHeadModel.from_pretrained("gpt2")
+        self._model = pipeline('text-generation', model='gpt2')
 
     def run(self, inpt: str):
         """
@@ -27,13 +25,4 @@ class GPT2:
             str: The generated text based on the input.
         """
 
-        # Encode the input text using the tokenizer, converting it into token IDs
-        inpt_t = self._tokenizer_.encode(inpt, return_tensors='pt')
-
-        # Generate text using the model based on the encoded input
-        output = self._model_.generate(inpt_t)
-
-        # Decode the generated output tokens into text, skipping special tokens like padding
-        output_text = self._tokenizer_.decode(output[0], skip_special_tokens=True)
-
-        return output_text
+        return self._model(inpt, num_return_sequences=1, max_length=100)[0]['generated_text']

@@ -2,8 +2,8 @@
 function clearGinput() {
     var i;
 
-    // Get a reference to te textareas to be cleared
-    var textareas = document.getElementsByClassName('ginput-tarea');
+    // Get a reference to the textareas to be cleared
+    var textareas = document.getElementsByClassName('text-area');
     
     // Set its value (text) to the empty string 
     for (i = 0; i < textareas.length; ++i) {
@@ -23,14 +23,14 @@ async function runGinput() {
     // Check if the input message is empty
     if (!inputMessage) {
         outputTextArea.classList.add('error');
-        outputTextArea.value = 'Please, enter an input';
+        outputTextArea.value = 'Please, enter an input...';
         return;
     }
 
     // Check if a model is loaded, modelLoaded variable is handled in modelselect.js
     if (!modelLoaded) {
         outputTextArea.classList.add('error');
-        outputTextArea.value = 'Please, select a model';
+        outputTextArea.value = 'Please, select a model...';
         return;
     }
 
