@@ -1,23 +1,22 @@
-from model.modeltemplate import ModelTemplate
-from transformers import pipeline, set_seed
+from abc import ABC, abstractmethod
 
-class GPT2(ModelTemplate):
+class ModelTemplate(ABC):
     """
-    This class represents a wrapper for the GPT-2 language model using the huggingface's transformers library.
+    Interface to force models to have the same methods to be used by the Model class.
     """
 
+    @abstractmethod
     def __init__(self):
         """
-        Initializes the GPT2 class with a pipeline for text generation using the GPT-2 model.
+        Abstract method: Default constructor, initializes the model and other attributes.
         """
 
-        self.id = 'gpt2'
+        pass 
 
-        self._model = pipeline('text-generation', model='gpt2')
-
+    @abstractmethod
     def run(self, inpt: str, max_length: int, temperature: float, top_p: float, top_k:int):
         """
-        Runs the GPT-2 model on the provided input text and generates text.
+        Abstract method: Runs the model on the given input using specified parameters.
 
         Args:
             inpt (str): The input data for the model.
@@ -29,5 +28,4 @@ class GPT2(ModelTemplate):
         Returns:
             str: The generated text based on the input.
         """
-
-        return self._model(inpt, num_return_sequences=1, max_new_tokens=max_length, temperature=temperature, top_p=top_p, top_k=top_k)[0]['generated_text'][len(inpt):]
+        pass

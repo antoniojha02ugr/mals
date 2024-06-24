@@ -55,7 +55,7 @@ class Model:
         """
         
         if self._model != None:
-            return self._model.run(inpt)
+            return self._model.run(inpt, 8, 1, 0.5, 20)
             
         else:
             return ''

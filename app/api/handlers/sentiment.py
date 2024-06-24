@@ -1,4 +1,5 @@
 from model.model import Model
+from sklearn.metrics import confusion_matrix
 import pandas as pd
 
 class Sentiment:
@@ -114,7 +115,7 @@ class Sentiment:
 
                 # Run the model to get the output
                 generated_out = model.run(inpt)
-
+        
                 # Assign a label to the model's output
                 prediction = self._assign_label(generated_out, dataset)
                 
@@ -126,8 +127,17 @@ class Sentiment:
 
             # Calculate the accuracy
             accuracy = (results['real_label'] == results['pred_label']).mean()    
+            
+            # Labels for the confusion matrix
+            labels = sorted(list(results['real_label'].unique()) + ['unlabeled'])
 
-            return f'Accuracy: {accuracy:.2f}'
+            # Calculate confusion matrix
+            cm = confusion_matrix(results['real_label'], results['pred_label'], labels=labels)
+
+            # Create DataFrame with confusion matrix
+            cm_df = pd.DataFrame(cm, index=labels, columns=labels)
+
+            return f'Accuracy: {accuracy:.3f}\n\nConfusion Matrix (True = rows, Predicted = columns):\n\n{cm_df}'
 
         else:
             return ''
