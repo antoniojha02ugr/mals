@@ -30,7 +30,7 @@ class Gemini(ModelTemplate):
         # Create the instance of the gemini-1.0-pro model
         self._model = genai.GenerativeModel('gemini-1.0-pro')
 
-    def run(self, inpt: str, max_length: int, temperature: float, top_p: float, top_k:int):
+    def run(self, inpt: str, max_length: int, temperature: float, top_p: float, top_k: int):
         """
         Runs the Gemini model on the provided input text and generates text.
 

@@ -11,15 +11,22 @@ from starlette.responses import FileResponse
 class ModelIdentificator(BaseModel):
     id: str
 
+class InferenceParameters(BaseModel):
+    max_tokens: int
+    temperature: float
+    top_p: float
+    top_k: int
+
 class GeneralInput(BaseModel):
     inpt: str
+    parameters: InferenceParameters
 
 class SentimentInput(BaseModel):
     dataset: str
     instances: int
     left: str
     right: str
-
+    parameters: InferenceParameters
 
 # ------------------------------ Initial configuration and variables ------------------------------
 
@@ -71,7 +78,7 @@ async def run_ginput(gi: GeneralInput):
     It's intended to handle processing of general input data using a model (presumably selected through the '/api/select-model' endpoint).
     """
 
-    output = model.run(gi.inpt)
+    output = model.run(gi.inpt, gi.parameters.max_tokens, gi.parameters.temperature, gi.parameters.top_p, gi.parameters.top_k)
     
     return {'output': output} 
 
@@ -84,4 +91,4 @@ async def run_sentiment(si: SentimentInput):
     It's intended to run a sentiment analysis on a dataset using a model (presumably selected through the '/api/select-model' endpoint).
     """
 
-    return {'output': sentiment.run(si.dataset, model, si.instances, si.left, si.right)}
+    return {'output': sentiment.run(si.dataset, model, si.instances, si.left, si.right, si.parameters.max_tokens, si.parameters.temperature, si.parameters.top_p, si.parameters.top_k)}

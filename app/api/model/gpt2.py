@@ -15,7 +15,7 @@ class GPT2(ModelTemplate):
 
         self._model = pipeline('text-generation', model='gpt2')
 
-    def run(self, inpt: str, max_length: int, temperature: float, top_p: float, top_k:int):
+    def run(self, inpt: str, max_length: int, temperature: float, top_p: float, top_k: int):
         """
         Runs the GPT-2 model on the provided input text and generates text.
 

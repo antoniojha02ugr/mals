@@ -20,7 +20,7 @@ class Llama2(ModelTemplate):
         # Loads the model from the specified repository, the model is stored at virtual enviroment cache for future executions
         self._model = Llama.from_pretrained(repo_id="TheBloke/Llama-2-7B-Chat-GGUF", filename="llama-2-7b-chat.Q4_K_M.gguf", verbose=False, n_gpu_layers=-1)
 
-    def run(self, inpt: str, max_length: int, temperature: float, top_p: float, top_k:int):
+    def run(self, inpt: str, max_length: int, temperature: float, top_p: float, top_k: int):
         """
         Runs the Llama2 model on the provided input text and generates text.
 

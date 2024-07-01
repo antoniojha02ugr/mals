@@ -53,13 +53,19 @@ async function runGinput() {
     outputTextArea.value = '';
 
     try {
+        // Get the values of the parameter sliders
+        const mt = parseInt(document.getElementById('mt-r').value);
+        const te = parseFloat(document.getElementById('te-r').value);
+        const tp = parseFloat(document.getElementById('tp-r').value);
+        const tk = parseInt(document.getElementById('tk-r').value);
+
         // Make an API call to /api/run-ginput with the input message
         const response = await fetch('/api/run-ginput', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ inpt: inputMessage })
+          body: JSON.stringify({ inpt: inputMessage, parameters: {max_tokens: mt, temperature: te, top_p: tp, top_k: tk} })
         });
     
         // Check if the API call was successful (status code 200)

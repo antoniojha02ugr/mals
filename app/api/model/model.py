@@ -43,7 +43,7 @@ class Model:
 
         return True
 
-    def run(self, inpt: str):
+    def run(self, inpt: str, max_length: int, temperature: float, top_p: float, top_k: int):
         """
         Runs the loaded model on the provided input data.
 
@@ -55,7 +55,7 @@ class Model:
         """
         
         if self._model != None:
-            return self._model.run(inpt, 8, 1, 0.5, 20)
+            return self._model.run(inpt, max_length, temperature, top_p, top_k)
             
         else:
             return ''

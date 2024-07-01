@@ -86,13 +86,19 @@ async function runSentiment() {
     outputTextArea.value = '';
 
     try {
+        // Get the values of the parameter sliders
+        const mt = parseInt(document.getElementById('mt-r').value);
+        const te = parseFloat(document.getElementById('te-r').value);
+        const tp = parseFloat(document.getElementById('tp-r').value);
+        const tk = parseInt(document.getElementById('tk-r').value);
+
         // Make an API call to /api/run-sentiment with the input message
         const response = await fetch('/api/run-sentiment', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ dataset: selectedDataset.id, instances: instancesNumber , left: inputLeftTextArea.value, right: inputRightTextArea.value})
+          body: JSON.stringify({ dataset: selectedDataset.id, instances: instancesNumber , left: inputLeftTextArea.value, right: inputRightTextArea.value, parameters: {max_tokens: mt, temperature: te, top_p: tp, top_k: tk}})
         });
     
         // Check if the API call was successful (status code 200)
