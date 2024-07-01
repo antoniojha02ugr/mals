@@ -45,6 +45,9 @@ class Gemini(ModelTemplate):
             str: The generated text based on the input.
         """
 
+        # Temperature cannot be greater than 2 in Gemini
+        temperature = min(temperature, 2)
+
         config = genai.GenerationConfig(max_output_tokens=max_length, temperature=temperature, top_p=top_p, top_k=top_k)
 
         return self._model.generate_content(inpt, generation_config=config).text
