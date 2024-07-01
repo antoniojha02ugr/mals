@@ -83,7 +83,7 @@ class Sentiment:
         else:
             return labels[i][0]
 
-    def run(self, dataset: str, model: Model, instances: int, left: str, right: str):
+    def run(self, dataset: str, model: Model, instances: int, left: str, right: str, max_length: int, temperature: float, top_p: float, top_k: int):
         """
         Run the sentiment analysis on the given dataset using the specified model.
 
@@ -114,7 +114,7 @@ class Sentiment:
                 inpt = left + ' ' + row[0] + ' ' + right
 
                 # Run the model to get the output
-                generated_out = model.run(inpt)
+                generated_out = model.run(inpt, max_length, temperature, top_p, top_k)
         
                 # Assign a label to the model's output
                 prediction = self._assign_label(generated_out, dataset)
